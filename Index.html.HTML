@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Syahwa Mauliza - Portofolio</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+
+<style>
+  /* Reset & base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+  }
+  body {
+    background: #0f0f0f;
+    color: #e0e0e0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    /* Corak grid dan noise */
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px, 40px 40px, 8px 8px;
+    background-position: 0 0, 0 0, 4px 4px;
+    transition: background-color 0.5s ease;
+  }
+
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 100px auto 80px;
+    background: #1b1b1bcc;
+    border-radius: 15px;
+    padding: 40px 35px;
+    box-shadow: 0 0 40px #ffc857aa;
+    backdrop-filter: blur(10px);
+    animation: fadeInScale 0.8s ease forwards;
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  /* Animasi fadeInScale */
+  @keyframes fadeInScale {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  header img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ffc857;
+    box-shadow: 0 0 30px #ffc857bb;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+  }
+  header img:hover {
+    transform: scale(1.1) rotate(4deg);
+    box-shadow: 0 0 50px #ffc857ff;
+  }
+  header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    margin-top: 20px;
+    color: #ffc857;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px #ffc857cc;
+  }
+  header p {
+    font-style: italic;
+    font-size: 18px;
+    color: #d9d9d9;
+    margin-top: 6px;
+    text-shadow: 0 0 6px #222;
+  }
+  header h1:hover {
+  text-shadow: 0 0 20px #ffc857aa, 0 0 40px #ffc85777;
+}
+
+header p:hover {
+  text-shadow: 0 0 12px #fff5, 0 0 18px #ffc85766;
+}
+
+  /* Navbar */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #1b1b1bcc;
+    backdrop-filter: blur(15px);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    box-shadow: 0 2px 10px #0008;
+    z-index: 9999;
+    user-select: none;
+  }
+  nav a {
+    color: #ffc857;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 12px transparent;
+    transition: all 0.35s ease;
+  }
+  nav a:hover {
+    box-shadow: 0 0 18px #ffc857cc;
+    background-color: #ffc85722;
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  /* Sections */
+  section h2::before {
+  transition: transform 0.4s ease;
+}
+section h2:hover::before {
+  transform: scale(1.3) rotate(10deg);
+}
+  section {
+    margin-top: 80px;
+    border-left: 4px solid #ffc857;
+    padding-left: 20px;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    position: relative;
+  }
+  section:hover {
+  background: linear-gradient(90deg, #ffc85711, transparent);
+  transition: background 0.4s ease-in-out;
+}
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  section::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ffc85766, transparent);
+  }
+  section:last-of-type::after {
+    display: none;
+  }
+  section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    color: #ffc857;
+    margin-bottom: 20px;
+    letter-spacing: 1.2px;
+    position: relative;
+  }
+  section h2::after {
+    content: '';
+    display: block;
+    height: 4px;
+    background: #ffc857;
+    border-radius: 4px;
+    width: fit-content;
+    margin-inline-start: 0;
+  }
+
+  /* Lists */
+  ul {
+    padding-left: 22px;
+    color: #ddd;
+    font-size: 17px;
+    line-height: 1.5;
+    list-style-type: disc;
+  }
+
+  /* Skills */
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .skills span {
+    background: #ffc857;
+    color: #121212;
+    padding: 12px 26px;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 30px;
+    box-shadow: 0 6px 25px rgba(255, 200, 87, 0.45);
+    cursor: default;
+    user-select: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .skills span:hover {
+    background: #f3b741;
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 200, 87, 0.7);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    border-top: 1px solid #333;
+    padding: 18px 0;
+    margin-top: 60px;
+    user-select: none;
+    font-size: 14px;
+  }
+
+  /* Fade out animation for page transitions */
+  .fade-out {
+    animation: fadeOut 0.5s forwards;
+  }
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header h1 { font-size: 32px; }
+    section h2 { font-size: 24px; }
+    nav a { font-size: 14px; padding: 10px 14px; }
+    .skills span { font-size: 14px; padding: 10px 18px; }
+  }
+  /* Icon before section titles tanpa mengubah HTML */
+
+#biodata h2::before {
+  content: "\f007"; /* User icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 12px;
+  color: #ffc857;
+}
+
+#about h2::before {
+  content: "\f129"; /* Info circle icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 12px;
+  color: #ffc857;
+}
+
+#education h2::before {
+  content: "\f19d"; /* Graduation cap icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 12px;
+  color: #ffc857;
+}
+
+#skill h2::before {
+  content: "\f121"; /* Tools icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 12px;
+  color: #ffc857;
+}
+
+#Experience h2::before {
+  content: "\f0b1"; /* Briefcase icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 12px;
+  color: #ffc857;
+}
+
+#Contact h2::before {
+  content: "\f2b6"; /* Address book icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 12px;
+  color: #ffc857;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#biodata">Biodata</a>
+  <a href="#about">Tentang Saya</a>
+  <a href="#education">Pendidikan</a>
+  <a href="#skill">Skill</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+  <header>
+    <img src="Profile.jpg" alt="Foto Syahwa Mauliza" loading="lazy" />
+    <h1>Syahwa Mauliza</h1>
+    <p>Mahasiswa Sistem Informasi - Universitas Muhammadiyah Sumatera Utara ✨</p>
+  </header>
+
+  <section id="biodata">
+    <h2>Biodata</h2>
+    <ul>
+      <li><strong>Nama:</strong> Syahwa Mauliza</li>
+      <li><strong>Jenis Kelamin:</strong> Perempuan</li>
+      <li><strong>Tempat, Tanggal Lahir:</strong> Tanjung Mulia, 15 Mei 2004</li>
+      <li><strong>Alamat:</strong> Jl. Bono, Gelugur Darat I</li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah mahasiswa aktif jurusan Sistem Informasi semester 4 yang memiliki ketertarikan dalam bidang teknologi Informasi, web development, serta manajemen data dan sistem. Saya senang mempelajari hal-hal baru yang berhubungan dengan IT dan siap untuk berkontribusi dalam pengembangan teknologi kedepan.</p>
+  </section>
+
+  <section id="education">
+    <h2>Pendidikan</h2>
+    <ul>
+      <li><strong>SDN Tanjung Mulia</strong> (2010 – 2016)</li>
+      <li><strong>MTsN 2 Aceh Tamiang</strong> (2016 – 2019)</li>
+      <li><strong>SMKN 1 Bendahara</strong> (2019 – 2022)</li>
+      <li><strong>Universitas Muhammadiyah Sumatera Utara</strong> (2023 – Sekarang)</li>
+    </ul>
+  </section>
+
+  <section id="skill">
+    <h2>Skill</h2>
+    <div class="skills">
+      <span>Web Development</span>
+      <span>UI/UX Design</span>
+      <span>Database Management</span>
+      <span>Networking Basics</span>
+      <span>Project Management</span>
+      <span>Java</span>
+      <span>Python</span>
+    </div>
+  </section>
+
+  <section id="Experience">
+    <h2>Pengalaman Kerja</h2>
+    <p><em>Februari 2021 - April 2021</em></p>
+    <p>Magang di Plasa Telkom Langsa saat SMK. Membantu tim teknisi dalam pengelolaan jaringan internet, melakukan pendataan perangkat dan monitoring koneksi, mendokumentasikan proses administrasi serta memperkenalkan layanan digital Telkom kepada pelanggan.</p>
+
+    <h3>Proyek Portofolio</h3>
+    <ul>
+      <li>Input Data pelanggan ke Sistem - membantu staff Telkom dalam proses Input dan Update Data pelanggan ke aplikasi internal perusahaan.</li>
+      <li>Desain Objek 3D Coffeshop dan rumah Menggunakan APK Blender</li>
+      <li>Desain UI/UX untuk aplikasi mobile — Figma & Adobe XD</li>
+    </ul>
+  </section>
+
+  <section id="Contact">
+    <h2>Kontak Saya</h2>
+    <ul>
+      <li>📞 <a href="tel:+6281262426115" style="color:#ffc857;">+62 812-6242-6115</a></li>
+      <li>✉ <a href="mailto:Syahwamaulida389@gmail.com" style="color:#ffc857;">Syahwamaulida389@gmail.com</a></li>
+      <li>📷 <a href="https://instagram.com/Syahwa.mz_" target="_blank" rel="noopener" style="color:#ffc857;">@Syahwa.mz</a></li>
+      <li>📍 Medan, Sumatera Utara</li>
+    </ul>
+  </section>
+
+  <footer>© 2025 Syahwa Mauliza. Dibuat dengan HTML & CSS.</footer>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    
+    function revealSections() {
+      const windowBottom = window.innerHeight + window.scrollY;
+      sections.forEach(section => {
+        if (windowBottom > section.offsetTop + 100) {
+          section.classList.add("visible");
+        }
+      });
+    }
+    
+    revealSections();
+    window.addEventListener("scroll", revealSections);
+
+    // Smooth scroll for navbar links
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
